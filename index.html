@@ -937,9 +937,10 @@ Author URL: http://w3layouts.com
 						<form action="#" method="post" class="signin-form mt-lg-5 mt-4">
 							<div class="forms-gds">
 								<div class="form-input">
-									<input type="email" name="" placeholder="Your email here" required="">
+									<input type="email" name="email" placeholder="Your email here" required="">
 								</div>
 								<div class="form-input"><button class="btn">Join</button></div>
+
 							</div>
 						</form>
 					</div>
@@ -1100,7 +1101,7 @@ Author URL: http://w3layouts.com
 				interval: 5000
     });
   </script>
- <!-- cart-js -->
+ <!-- cart-js -->-->
  <script src="assets/js/minicart.js"></script>
  <script>
      transmitv.render();
@@ -1148,3 +1149,14 @@ Author URL: http://w3layouts.com
 <!-- disable body scroll which navbar is in active -->
 <script src="assets/js/bootstrap.min.js"></script>
 
+<?php if (isset($_POST["otprav"])) {
+$to = "donbod8@gmail.com";
+$subject = "Письмо с сайта";
+$charset = "utf-8";
+$headerss ="Content-type: text/html; charset=$charset\r\n";
+$headerss.="MIME-Version: 1.0\r\n";
+$headerss.="Date: ".date('D, d M Y h:i:s O')."\r\n";
+$msg = "Имя: ".$_POST["name"]."\n";$msg .= "Сообщение: ".$_POST["msg"]."\n";
+mail($to, $subject, $msg, $headerss);
+print "<script>alert(\"Сообщение успешно отправлено!\");window.location = window.location.href</script>";
+}
