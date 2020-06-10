@@ -1,0 +1,1 @@
+var testUser = { email: 'kelvin@gmai.com', password: '1234'};
